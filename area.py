@@ -10,7 +10,7 @@ insight: https://www.topbots.com/automate-3d-point-cloud-segmentation/
 '''
 
 
-path = 'data/pointcloud_sequential.ply'
+path = r'C:\Users\lfcas\Documents\Internship\meshroom_reconstructions\Test_5\High_FeatureExtraction\sfm.ply'
 pcd = o3d.io.read_point_cloud(path)
 # o3d.visualization.draw_geometries([pcd])
 
@@ -26,7 +26,7 @@ plane_model, inliers = pcd.segment_plane(distance_threshold=0.1, ransac_n=3, num
 inlier_cloud = pcd.select_by_index(inliers)
 outlier_cloud = pcd.select_by_index(inliers, invert=True)
 
-	
+ 	
 # o3d.visualization.draw_geometries([inlier_cloud, outlier_cloud])
 
 color_pixels = np.asarray(pcd.colors)
