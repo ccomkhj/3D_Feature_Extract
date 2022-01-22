@@ -26,11 +26,15 @@ def display_geo(pcd):
     viewer.create_window(width = 960, height = 540)
     
     for p in pcd:
+        # Show oriented Box
         # obb = p.get_oriented_bounding_box()
         # viewer.add_geometry(obb)
         
+        # Show axis alligned box
         aabox = p.get_axis_aligned_bounding_box()
         viewer.add_geometry(aabox)
+        
+        # Show geometry
         viewer.add_geometry(p)
     
     viewer.add_geometry(axis_pcd)
@@ -57,7 +61,7 @@ def display_inlier_outlier(cloud, ind):
     print(f'Outliers are a {outlier_cloud}')
     inlier_cloud.paint_uniform_color([0.8, 0.8, 0.8])
     print(f'Inliers are a {inlier_cloud}')
-    display_pcd([outlier_cloud, inlier_cloud])
+    display_geo([outlier_cloud, inlier_cloud])
     
 def save_pcd(name, pcd):
     o3d.io.write_point_cloud(name, pcd)
