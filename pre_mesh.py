@@ -212,9 +212,10 @@ class Mesh:
 
 
 if __name__ == '__main__':
-    if 'm' not in locals():
+    if 'm' not in globals():
         m = o3d.io.read_triangle_mesh(r'C:\Users\lfcas\Documents\Internship\3D_Feature_Extract\mesh.obj')
         m.paint_uniform_color([1, 0.706, 0])
+        print('aa')
     
     mesh = Mesh(m)
     
